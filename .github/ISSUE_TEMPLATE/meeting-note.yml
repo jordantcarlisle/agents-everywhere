@@ -1,0 +1,22 @@
+name: Meeting note
+description: I want to write up what happened at a meeting.
+title: "[Meeting note] "
+labels: ["meeting-note"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer to just open a PR directly? Go for it — copy
+        `meetings/TEMPLATE.md` into a new `meetings/YYYY-MM-DD-<slug>/`
+        folder. This Issue is for when you want to claim the writeup
+        publicly first.
+  - type: input
+    id: date
+    attributes:
+      label: Meeting date (YYYY-MM-DD)
+    validations:
+      required: true
+  - type: textarea
+    id: plan
+    attributes:
+      label: What will you cover?

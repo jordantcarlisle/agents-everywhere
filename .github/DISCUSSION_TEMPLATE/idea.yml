@@ -1,0 +1,31 @@
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Kicking around an idea for what the community should build? Low
+        friction here. If it gets traction, formalize it as a PR against
+        /proposals/ (or ask your agent to run `draft-proposal`).
+  - type: input
+    id: one-liner
+    attributes:
+      label: What's the idea in one line?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does the community want this?
+      description: Who benefits, why now.
+    validations:
+      required: true
+  - type: textarea
+    id: shape
+    attributes:
+      label: What would the rough shape look like?
+      description: Architecture, UX, a paragraph. No need to over-spec.
+  - type: input
+    id: who
+    attributes:
+      label: Who do you think would build it?

@@ -1,0 +1,30 @@
+name: Proposal follow-up
+description: Track implementation of a merged proposal.
+title: "[Proposal follow-up] "
+labels: ["proposal-followup"]
+body:
+  - type: input
+    id: proposal
+    attributes:
+      label: Which merged proposal does this track?
+      description: Link to the proposal file (e.g. `proposals/2026-05-01-foo.md`) or the merged PR.
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - in-repo
+        - new-repo
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: If new-repo, link to it
+  - type: textarea
+    id: next
+    attributes:
+      label: What's next?
+      description: What needs to happen to move this forward. Break it down if helpful.

@@ -1,0 +1,19 @@
+name: Bug
+description: Something in the repo itself is broken.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What's broken?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen
