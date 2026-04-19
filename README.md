@@ -39,4 +39,4 @@ The official community github for Agents Everywhere All at Once
 - **[Kenny Cason](https://kennycason.com/)** — Software engineer and CTO/co-founder at Arrived; Kotlin/Java/TypeScript builder with deep open-source and ML background.
 
 ### Initiatives
-- **[Wisconsin Governor's Task Force on Workforce and AI](https://dwd.wisconsin.gov/ai-taskforce/)** — State-led task force that produced an advisory action plan on generative AI's impact on Wisconsin's labor market, industries, education, and economic development.
+- **[Wisconsin Franchise Search](https://apps.dfi.wi.gov/apps/FranchiseSearch/MainSearch.aspx)** — Wisconsin Department of Financial Institutions' public database for looking up franchise registrations by name — a surprisingly useful source of franchise disclosure documents (FDDs) for market research.
