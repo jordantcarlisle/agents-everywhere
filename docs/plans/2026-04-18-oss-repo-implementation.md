@@ -386,7 +386,7 @@ Expected: file starts with `# Contributor Covenant Code of Conduct`
 
 - [ ] **Step 3: Set the enforcement contact**
 
-Edit `CODE_OF_CONDUCT.md`: find the placeholder `[INSERT CONTACT METHOD]` and replace with `jordan@sobersidekick.com`.
+Edit `CODE_OF_CONDUCT.md`: find the placeholder `[INSERT CONTACT METHOD]` and replace with `me@jordancarlisle.com`.
 
 - [ ] **Step 4: Commit**
 
