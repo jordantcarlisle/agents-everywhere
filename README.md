@@ -12,22 +12,22 @@ The official community github for Agents Everywhere All at Once
 ### Coding Agents & IDEs
 - **[Claude Code](https://claude.com/claude-code)** — Anthropic's official coding agent. Runs in the terminal, desktop app, web, and IDE extensions.
 - **[Cursor](https://cursor.com)** — AI-native code editor with agent and chat built in.
-- **[Antigravity](https://antigravity.google)** — Google's agentic IDE for orchestrating coding agents across editor, terminal, and browser. _(verify — Google Antigravity)_
+- **[Antigravity](https://antigravity.google)** — Google's agentic IDE for orchestrating coding agents across editor, terminal, and browser.
 
 ### Agent Skills & Plugins
-- **[Superpowers](https://github.com/obra/superpowers)** — Plugin that gives Claude Code composable "skills" for brainstorming, TDD, debugging, planning, and more.
-- **Claude Cowork** — _(link TBD — confirm what this refers to)_
-- **Impeccable** — _(link TBD — guessing the `teach-impeccable` design skill from Superpowers?)_
-- **Hermes Agent** — _(link TBD — confirm repo/product)_
-- **Awesome Design** — _(link TBD — an `awesome-*` list on GitHub?)_
+- **[Superpowers](https://github.com/obra/superpowers)** — A complete software development methodology for coding agents, built as composable skills on top of Claude Code.
+- **[Claude Cowork](https://www.anthropic.com/product/claude-cowork)** — Anthropic's agentic AI for knowledge work — runs on your desktop and completes multi-step tasks across files, folders, and apps.
+- **[Impeccable](https://impeccable.style/)** — Design-focused skill pack for Claude Code, Cursor, Gemini CLI, and Codex that fights generic AI aesthetics with commands like `/polish`, `/distill`, `/bolder`, and `/animate`.
+- **[Hermes Agent](https://hermes-agent.nousresearch.com/)** — Nous Research's self-improving AI agent that runs on your server, remembers what it learns, and auto-generates reusable skills.
+- **[Awesome Claude Design](https://github.com/VoltAgent/awesome-claude-design)** — 68 ready-to-use design system inspirations in `DESIGN.md` format — drop one in and scaffold a full UI in one shot.
 
 ### Design & Creative
-- **[Bloom](https://bloom.ai)** — AI marketing tool that learns your brand aesthetic from a URL to generate on-brand images and ads. _(verify exact URL — bloom.ai / usebloom.com / heybloom.ai)_
-- **Claude Design** — _(link TBD — confirm what this refers to)_
-- **Visual Explainer** — _(link TBD — confirm product/site)_
+- **[Bloom](https://www.trybloom.ai/)** — AI marketing tool that learns your brand aesthetic from a URL and generates on-brand images and ads.
+- **[Claude Design](https://www.anthropic.com/news/claude-design-anthropic-labs)** — Anthropic Labs product for creating polished designs, prototypes, slides, and one-pagers through conversation with Claude.
+- **[Visual Concept Explainer](https://mcpmarket.com/tools/skills/visual-concept-explainer)** — Claude Code skill that turns raw content into high-fidelity educational infographics and visual explainers.
 
 ### Publishing & Docs
-- **[Quarto / QMD](https://quarto.org)** — Open-source publishing system using `.qmd` files for reproducible docs, slides, and sites. _(verify — assuming QMD = Quarto)_
+- **[Quarto (QMD)](https://quarto.org)** — Open-source scientific and technical publishing system using `.qmd` files for reproducible docs, slides, and sites across Python, R, Julia, and Observable.
 
 ## References
 
@@ -36,7 +36,7 @@ The official community github for Agents Everywhere All at Once
 - **[A Thousand Brains](https://www.goodreads.com/book/show/54503521-a-thousand-brains)** — Jeff Hawkins. Follow-up arguing the cortex runs thousands of parallel reference-frame models of the world.
 
 ### People
-- **Kenny Cason** — _(link TBD — confirm which Kenny Cason and what to say about him)_
+- **[Kenny Cason](https://kennycason.com/)** — Software engineer and CTO/co-founder at Arrived; Kotlin/Java/TypeScript builder with deep open-source and ML background.
 
-### Other
-- **Wisconsin Government** — _(link TBD — confirm what this refers to: agency site, dataset, talk?)_
+### Initiatives
+- **[Wisconsin Governor's Task Force on Workforce and AI](https://dwd.wisconsin.gov/ai-taskforce/)** — State-led task force that produced an advisory action plan on generative AI's impact on Wisconsin's labor market, industries, education, and economic development.
