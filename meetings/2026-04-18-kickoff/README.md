@@ -34,10 +34,11 @@ it was, what stood out, and where people can find it.
 
 - [Arkade](https://arkade.com) — host venue
 - This repo — `agentic-nwa/agents-everywhere`
-- See Discussions for the kickoff recap thread and the first proposal kickoff thread.
+- [Kickoff recap thread](https://github.com/agentic-nwa/agents-everywhere/discussions/7) — drop missing workshop/demo bullets here or in a PR
+- [First proposal kickoff: Shared Agent Eval Harness](https://github.com/agentic-nwa/agents-everywhere/discussions/8)
 
 ## Follow-ups
 
 - Collect workshop recaps from volunteers and turn them into bullets above.
 - Fill in the demo list with repos, screenshots, or short summaries.
-- Use Discussions to gather missing kickoff context and steer the first proposal into review.
+- Use the kickoff recap thread to gather missing context and the eval-harness thread to steer the first proposal into review.
