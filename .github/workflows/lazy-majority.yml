@@ -18,7 +18,6 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            const core = require('@actions/core');
             const pr = context.payload.pull_request;
             const { owner, repo } = context.repo;
 
