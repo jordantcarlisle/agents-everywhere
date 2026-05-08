@@ -24,9 +24,9 @@ A common harness for running the same prompts and scoring across
 Claude Code, Codex, Cursor, OpenClaw. Everyone's running private evals
 in parallel; a shared one makes us collectively smarter about what
 actually works. `proposals/0000-example.md` is a worked example
-sketching this out — surfacing it here so someone can champion it
-formally.
-**Status**: open for a champion
+sketching this out; the first formal draft now lives in
+`proposals/2026-05-08-shared-eval-harness.md`.
+**Status**: in progress — jordantcarlisle
 
 ### Local meetup scraper agent
 
