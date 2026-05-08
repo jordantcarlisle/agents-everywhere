@@ -9,21 +9,23 @@ on:
 permissions:
   contents: read
   pull-requests: read
-  statuses: write
 
 jobs:
-  check:
+  lazy-majority-check:
     runs-on: ubuntu-latest
     steps:
       - name: Evaluate lazy-majority conditions
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const pr = context.payload.pull_request;
             const { owner, repo } = context.repo;
-            const sha = pr.head.sha;
 
-            // 1. Does this PR touch /proposals/?
+            if (!pr) {
+              core.notice('No pull request found in event payload; nothing to evaluate.');
+              return;
+            }
+
             const files = await github.paginate(
               github.rest.pulls.listFiles,
               { owner, repo, pull_number: pr.number, per_page: 100 }
@@ -33,16 +35,10 @@ jobs:
             );
 
             if (!touchesProposals) {
-              await github.rest.repos.createCommitStatus({
-                owner, repo, sha,
-                state: 'success',
-                context: 'lazy-majority-check',
-                description: 'Not a proposal PR — skipping lazy-majority rule.'
-              });
+              core.notice('Not a proposal PR — skipping lazy-majority rule.');
               return;
             }
 
-            // 2. Count distinct-approver approvals and unresolved blocks.
             const reviews = await github.paginate(
               github.rest.pulls.listReviews,
               { owner, repo, pull_number: pr.number, per_page: 100 }
@@ -50,46 +46,42 @@ jobs:
             const latestByReviewer = new Map();
             for (const r of reviews) {
               if (!r.user) continue;
-              // Track only APPROVED / CHANGES_REQUESTED / DISMISSED.
               if (!['APPROVED', 'CHANGES_REQUESTED', 'DISMISSED'].includes(r.state)) continue;
               latestByReviewer.set(r.user.login, r.state);
             }
-            const approvals = [...latestByReviewer.values()]
-              .filter(s => s === 'APPROVED').length;
-            const blocks = [...latestByReviewer.entries()]
-              .filter(([, s]) => s === 'CHANGES_REQUESTED');
 
-            // 3. PR age in days.
+            const approvals = [...latestByReviewer.values()]
+              .filter(state => state === 'APPROVED').length;
+            const blocks = [...latestByReviewer.entries()]
+              .filter(([, state]) => state === 'CHANGES_REQUESTED');
+
             const ageMs = Date.now() - new Date(pr.created_at).getTime();
             const ageDays = ageMs / (1000 * 60 * 60 * 24);
 
-            // Evaluate.
             const needed = 3;
             const windowDays = 7;
             const remainingApprovals = Math.max(0, needed - approvals);
             const remainingDays = Math.max(0, windowDays - ageDays);
 
-            let state = 'success';
-            let description = `OK: ${approvals} approvals, 0 blocks, ${ageDays.toFixed(1)}d open.`;
+            let message = `OK: ${approvals} approvals, 0 blocks, ${ageDays.toFixed(1)}d open.`;
 
             if (blocks.length > 0) {
-              state = 'failure';
-              const names = blocks.map(([u]) => '@' + u).join(', ');
-              description = `Blocked by ${names}. Resolve before merge.`;
-            } else if (remainingApprovals > 0) {
-              state = 'failure';
-              description = `Needs ${remainingApprovals} more approval(s) (have ${approvals}/3).`;
-            } else if (remainingDays > 0) {
-              state = 'failure';
-              description = `7-day window: ${remainingDays.toFixed(1)} day(s) remaining.`;
+              const names = blocks.map(([user]) => '@' + user).join(', ');
+              message = `Blocked by ${names}. Resolve before merge.`;
+              core.setFailed(message);
+              return;
             }
 
-            // GitHub status description max is 140 chars.
-            if (description.length > 140) description = description.slice(0, 137) + '...';
+            if (remainingApprovals > 0) {
+              message = `Needs ${remainingApprovals} more approval(s) (have ${approvals}/3).`;
+              core.setFailed(message);
+              return;
+            }
 
-            await github.rest.repos.createCommitStatus({
-              owner, repo, sha,
-              state,
-              context: 'lazy-majority-check',
-              description
-            });
+            if (remainingDays > 0) {
+              message = `7-day window: ${remainingDays.toFixed(1)} day(s) remaining.`;
+              core.setFailed(message);
+              return;
+            }
+
+            core.notice(message);
